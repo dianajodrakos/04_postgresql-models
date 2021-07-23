@@ -27,6 +27,25 @@ describe('rats routes', () => {
 
 
   it('GETS all rats', async () => {
+    const rat1 = await Rat.create({ 
+      name: 'Pizza Rat',
+      size: 'hefty',
+      location: 'NYC',
+      likesPizza: true
+    });
+
+    const rat2 = await Rat.create({
+      name: 'Splinter',
+      size: '6\'2\"',
+      location: 'NYC sewers',
+      likesPizza: true
+    });
+
+    return request(app)
+      .get('/api/v1/rat')
+      .then((res) => {
+        expect(res.body).toEqual([rat1, rat2]);
+      });
 
   });
 
