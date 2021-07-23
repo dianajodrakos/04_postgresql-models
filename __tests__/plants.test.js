@@ -10,7 +10,19 @@ describe('plant routes', () => {
   });
 
   it('POSTS a new plant', async () => {
+    const plant = { 
+      commonName: 'bird\'s nest fern',
+      scientificName: 'Asplenium Nidus',
+      light: 'partial to full shade',
+      difficulty: 6
+    };
 
+    const res = await request(app).post('/api/v1/plants').send(plant);
+
+    expect(res.body).toEqual({
+      id: '1',
+      ...plant,
+    });
   });
 
 
