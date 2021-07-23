@@ -64,7 +64,21 @@ describe('plant routes', () => {
 
 
   it('PUTS a plant by id', async () => {
+    const plant = await Plant.create({ 
+      commonName: 'fiddle-leaf fig',
+      scientificName: 'Ficus lyrata',
+      light: 'bright indirect light',
+      difficulty: 4
+    });
 
+    const res = await request(app)
+      .put(`/api/v1/plants/${plant.id}`)
+      .send({ difficulty: 7 });
+
+    expect(res.body).toEqual({
+      ...plant,
+      difficulty: 7
+    });
   });
 
 
