@@ -36,13 +36,13 @@ describe('rats routes', () => {
 
     const rat2 = await Rat.create({
       name: 'Splinter',
-      size: '6\'2\"',
+      size: '6\'2"',
       location: 'NYC sewers',
       likesPizza: true
     });
 
     return request(app)
-      .get('/api/v1/rat')
+      .get('/api/v1/rats')
       .then((res) => {
         expect(res.body).toEqual([rat1, rat2]);
       });
