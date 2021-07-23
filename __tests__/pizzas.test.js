@@ -60,9 +60,19 @@ describe('demo routes', () => {
   });
 
 
-  // it('PUTS a pizza by id', () => {
+  it('PUTS a pizza by id', async () => {
+    const pizza = await Pizza.create({
+      name: 'bbq chicken',
+      toppings: 'cheese, barbecue sauce, chicken',
+      rating: 4
+    });
 
-  // });
+    const res = await request(app)
+      .put(`api/v1/pizza/${pizza.id}`)
+      .send({ toppings: 'cheese, barbecue sauce, red onions, cilantro, chicken', rating: 7 });
+
+    expect(res.body).toEqual({ ...pizza, toppings: 'cheese, barbecue sauce, red onions, cilantro, chicken', rating: 7 });
+  });
 
 
   // it('DELETES a pizza by id', () => {
