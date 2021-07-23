@@ -84,6 +84,18 @@ describe('rats routes', () => {
 
 
   it('DELETES a rat by id', async () => {
+    const rat = await Rat.create({
+      name: 'Pizza Rat',
+      size: 'hefty',
+      location: 'NYC',
+      likesPizza: true
+    });
+
+    const res = await request(app).delete(`/api/v1/rats/${rat.id}`);
+
+    expect(res.body).toEqual({
+      message: `${rat.name} was deleted.`
+    });
 
   });
 
