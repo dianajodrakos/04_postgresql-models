@@ -68,10 +68,14 @@ describe('demo routes', () => {
     });
 
     const res = await request(app)
-      .put(`api/v1/pizza/${pizza.id}`)
+      .put(`/api/v1/pizzas/${pizza.id}`)
       .send({ toppings: 'cheese, barbecue sauce, red onions, cilantro, chicken', rating: 7 });
 
-    expect(res.body).toEqual({ ...pizza, toppings: 'cheese, barbecue sauce, red onions, cilantro, chicken', rating: 7 });
+    expect(res.body).toEqual({
+      ...pizza,
+      toppings: 'cheese, barbecue sauce, red onions, cilantro, chicken',
+      rating: 7
+    });
   });
 
 
