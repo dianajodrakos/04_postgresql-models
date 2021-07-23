@@ -39,7 +39,7 @@ describe('demo routes', () => {
     });
 
     return request(app)
-      .get('api/v1/pizzas')
+      .get('/api/v1/pizzas')
       .then((res) => {
         expect(res.body).toEqual([pizza1, pizza2]);
       });
