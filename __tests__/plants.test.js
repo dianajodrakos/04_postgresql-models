@@ -83,6 +83,17 @@ describe('plant routes', () => {
 
 
   it('DELETES a plant by id', async () => {
+    const plant = await Plant.create({ 
+      commonName: 'fiddle-leaf fig',
+      scientificName: 'Ficus lyrata',
+      light: 'bright indirect light',
+      difficulty: 4
+    });
 
+    const res = await request(app).delete(`/api/v1/plants/${plant.id}`);
+
+    expect(res.body).toEqual({
+      message: `${plant.name} was deleted.`
+    });
   });
 });
