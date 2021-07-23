@@ -53,7 +53,7 @@ describe('demo routes', () => {
       toppings: 'tomato sauce, mozzarella, basil',
       rating: 9
     });
-  console.log(pizza);
+
     const res = await request(app).get(`/api/v1/pizzas/${pizza.id}`);
 
     expect(res.body).toEqual(pizza);
