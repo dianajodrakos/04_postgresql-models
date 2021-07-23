@@ -27,7 +27,25 @@ describe('plant routes', () => {
 
 
   it('GETS all plants', async () => {
-    
+    const plant1 = { 
+      commonName: 'bird\'s nest fern',
+      scientificName: 'Asplenium nidus',
+      light: 'partial to full shade',
+      difficulty: 6
+    };
+
+    const plant2 = { 
+      commonName: 'pothos',
+      scientificName: 'Epipremnum aureum',
+      light: 'bright indirect light',
+      difficulty: 3
+    };
+
+    return request(app)
+      .get('/api/v1/plants')
+      .then((res) => {
+        expect(res.body).toEqual([plant1, plant2]);
+      });
   });
 
 
