@@ -47,9 +47,17 @@ describe('demo routes', () => {
   });
 
 
-  // it('GETS one pizza by id', () => {
+  it('GETS one pizza by id', async () => {
+    const pizza = await Pizza.create({
+      name: 'marinara',
+      toppings: 'tomato sauce, mozzarella, basil',
+      rating: 9
+    });
+  console.log(pizza);
+    const res = await request(app).get(`/api/v1/pizzas/${pizza.id}`);
 
-  // });
+    expect(res.body).toEqual(pizza);
+  });
 
 
   // it('PUTS a pizza by id', () => {
