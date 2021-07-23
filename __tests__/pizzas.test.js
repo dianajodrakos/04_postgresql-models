@@ -9,9 +9,20 @@ describe('demo routes', () => {
   });
 
 
-  // it('POSTS a new pizza', async () => {
+  it('POSTS a new pizza', async () => {
+    const pizza = { 
+      name: 'hawaiian',
+      toppings: 'cheese, pineapple, canadian bacon',
+      rating: 8
+    };
 
-  // });
+    const res = await request(app).post('api/v1/pizzas').send(pizza);
+
+    expect(res.body).toEqual({
+      id: pizza.id,
+      ...pizza,
+    });
+  });
 
 
   // it('GETS all pizzas', () => {
