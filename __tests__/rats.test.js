@@ -51,7 +51,16 @@ describe('rats routes', () => {
 
 
   it('GETS one rat by id', async () => {
+    const rat = { 
+      name: 'Pizza Rat',
+      size: 'hefty',
+      location: 'NYC',
+      likesPizza: true
+    };
 
+    const res = await request(app).get(`/api/v1/rats/${rat.id}`);
+
+    expect(res.body).toEqual(rat);
   });
 
 
