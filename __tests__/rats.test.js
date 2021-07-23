@@ -65,7 +65,21 @@ describe('rats routes', () => {
 
 
   it('PUTS a rat by id', async () => {
+    const rat = await Rat.create({
+      name: 'Pizza Rat',
+      size: 'hefty',
+      location: 'NYC',
+      likesPizza: true
+    });
 
+    const res = await request(app)
+      .put(`/api/v1/rats/${rat.id}`)
+      .send({ size: 'less hefty, on a diet' });
+
+    expect(res.body).toEqual({
+      ...rat,
+      size: 'less hefty, on a diet'
+    });
   });
 
 
