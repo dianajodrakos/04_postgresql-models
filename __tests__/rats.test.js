@@ -10,7 +10,19 @@ describe('rats routes', () => {
   });
 
   it('POSTS a new rat', async () => {
+    const rat = { 
+      name: 'Pizza Rat',
+      size: 'hefty',
+      location: 'NYC',
+      likesPizza: true
+    };
 
+    const res = await request(app).post('/api/v1/rats').send(rat);
+
+    expect(res.body).toEqual({
+      id: '1',
+      ...rat,
+    });
   });
 
 
@@ -30,5 +42,7 @@ describe('rats routes', () => {
 
 
   it('DELETES a rat by id', async () => {
+
+  });
 
 });
