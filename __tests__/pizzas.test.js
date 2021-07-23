@@ -8,5 +8,28 @@ describe('demo routes', () => {
     return setup(pool);
   });
 
-  
+
+  // it('POSTS a new pizza', async () => {
+
+  // });
+
+
+  // it('GETS all pizzas', () => {
+
+  // });
+
+
+  // it('GETS one pizza by id', () => {
+
+  // });
+
+
+  // it('PUTS a pizza by id', () => {
+
+  // });
+
+
+  // it('DELETES a pizza by id', () => {
+
+  // });
 });
