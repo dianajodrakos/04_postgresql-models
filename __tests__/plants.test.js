@@ -50,7 +50,16 @@ describe('plant routes', () => {
 
 
   it('GETS one plant by id', async () => {
+    const plant = await Plant.create({ 
+      commonName: 'elephant bush',
+      scientificName: 'Portulacaria afra',
+      light: 'full to partial sun',
+      difficulty: 3
+    });
 
+    const res = await request(app).get(`/api/v1/plants/${plant.id}`);
+
+    expect(res.body).toEqual(plant);
   });
 
 
