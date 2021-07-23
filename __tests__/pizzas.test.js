@@ -16,10 +16,10 @@ describe('demo routes', () => {
       rating: 8
     };
 
-    const res = await request(app).post('api/v1/pizzas').send(pizza);
+    const res = await request(app).post('/api/v1/pizzas').send(pizza);
 
     expect(res.body).toEqual({
-      id: pizza.id,
+      id: '1',
       ...pizza,
     });
   });

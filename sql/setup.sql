@@ -4,5 +4,5 @@ CREATE TABLE pizzas (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name TEXT NOT NULL,
     toppings TEXT NOT NULL,
-    rating INTEGER NOT NULL,
-);
+    rating INTEGER NOT NULL
+)
