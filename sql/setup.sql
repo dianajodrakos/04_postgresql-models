@@ -6,3 +6,14 @@ CREATE TABLE pizzas (
     toppings TEXT NOT NULL,
     rating INTEGER NOT NULL
 )
+
+DROP TABLE IF EXISTS rats;
+
+CREATE TABLE rats (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name TEXT NOT NULL,
+    size TEXT NOT NULL,
+    location TEXT NOT NULL,
+    likes_pizza BOOLEAN NOT NULL
+)
+

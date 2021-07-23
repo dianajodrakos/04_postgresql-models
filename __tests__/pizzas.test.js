@@ -4,7 +4,7 @@ import request from 'supertest';
 import app from '../lib/app.js';
 import Pizza from '../lib/models/Pizza.js';
 
-describe('demo routes', () => {
+describe('pizza routes', () => {
   beforeEach(() => {
     return setup(pool);
   });
