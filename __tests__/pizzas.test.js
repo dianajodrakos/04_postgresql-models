@@ -79,7 +79,17 @@ describe('demo routes', () => {
   });
 
 
-  // it('DELETES a pizza by id', () => {
+  it('DELETES a pizza by id', async () => {
+    const pizza = await Pizza.create({
+      name: 'hawaiian',
+      toppings: 'cheese, pineapple, canadian bacon',
+      rating: 8
+    });
 
-  // });
+    const res = await request(app).delete(`/api/v1/pizzas/${pizza.id}`);
+
+    expect(res.body).toEqual({
+      message: `${pizza.name} was deleted.`
+    });
+  });
 });
