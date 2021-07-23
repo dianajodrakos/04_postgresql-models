@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS pizzas;
 DROP TABLE IF EXISTS rats;
+DROP TABLE IF EXISTS plants;
 
 CREATE TABLE pizzas (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -14,5 +15,13 @@ CREATE TABLE rats (
     size TEXT NOT NULL,
     location TEXT NOT NULL,
     likes_pizza BOOL NOT NULL
+);
+
+CREATE TABLE plants (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    common_name TEXT NOT NULL,
+    scientific_name TEXT NOT NULL,
+    light TEXT NOT NULL,
+    difficulty INTEGER NOT NULL
 );
 
