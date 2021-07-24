@@ -8,7 +8,7 @@ CREATE TABLE fruits (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name TEXT NOT NULL,
     type TEXT NOT NULL,
-    season TEXT NOT NULL,
+    month TEXT NOT NULL,
     good_on_pizza BOOL NOT NULL
 )
 CREATE TABLE pizzas (
