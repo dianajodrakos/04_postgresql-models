@@ -96,5 +96,4 @@ describe('fruits routes', () => {
       message: `${fruit.name} was deleted.`
     });
   });
-  });
 });
