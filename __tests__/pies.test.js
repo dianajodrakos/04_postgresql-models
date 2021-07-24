@@ -10,7 +10,20 @@ describe('pie routes', () => {
   });
 
   it('POSTS a new pie', async () => {
+    const pie = { 
+      name: 'apple pie',
+      type: 'fruit',
+      filling: 'apples',
+      crust: 'flaky',
+      servings: 8
+    };
 
+    const res = await request(app).post('/api/v1/pies').send(pie);
+
+    expect(res.body).toEqual({
+      id: '1',
+      ...pie,
+    });
   });
 
 
