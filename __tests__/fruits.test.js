@@ -50,7 +50,16 @@ describe('fruits routes', () => {
 
 
   it('GETS one fruit by id', async () => {
+    const fruit = await Fruit.create({
+      name: 'cherry',
+      type: 'drupe',
+      month: 'June-August',
+      goodOnPizza: false
+    });
 
+    const res = await request(app).get(`/api/v1/fruits/${fruit.id}`);
+
+    expect(res.body).toEqual(fruit);
   });
 
 
