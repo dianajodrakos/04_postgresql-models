@@ -88,6 +88,19 @@ describe('pie routes', () => {
 
 
   it('DELETES a pie by id', async () => {
+    const pie = await Pie.create({
+      name: 'apple pie',
+      type: 'fruit',
+      filling: 'apples',
+      crust: 'flaky',
+      servings: 8
+    });
 
+    const res = await request(app).delete(`/api/v1/pies/${pie.id}`);
+
+    expect(res.body).toEqual({
+      message: `${pie.name} was deleted.`
+    });
   });
 });
+
