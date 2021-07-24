@@ -64,7 +64,21 @@ describe('fruits routes', () => {
 
 
   it('PUTS a fruit by id', async () => {
+    const fruit = await Fruit.create({
+      name: 'pineapple',
+      type: 'multiple fruit',
+      month: 'March-July',
+      goodOnPizza: false
+    });
 
+    const res = await request(app)
+      .put(`/api/v1/fruits/${fruit.id}`)
+      .send({ goodOnPizza: true });
+
+    expect(res.body).toEqual({
+      ...fruit,
+      goodOnPizza: true
+    });
   });
 
 
