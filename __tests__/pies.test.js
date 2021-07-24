@@ -28,7 +28,27 @@ describe('pie routes', () => {
 
 
   it('GETS all pies', async () => {
+    const pies1 = await Pie.create({
+      name: 'apple pie',
+      type: 'fruit',
+      filling: 'apples',
+      crust: 'flaky',
+      servings: 8
+    });
 
+    const pies2 = await Pie.create({
+      name: 'pizza',
+      type: 'savory',
+      filling: 'tomato sauce, cheese, various  toppings',
+      crust: 'thin crust',
+      servings: 12
+    });
+
+    return request(app)
+      .get('/api/v1/pies')
+      .then((res) => {
+        expect(res.body).toEqual([pies1, pies2]);
+      });
   });
 
 
