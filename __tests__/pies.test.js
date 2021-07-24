@@ -68,7 +68,22 @@ describe('pie routes', () => {
 
 
   it('PUTS a pie by id', async () => {
+    const pie = await Pie.create({
+      name: 'galette',
+      type: 'fruit',
+      filling: 'various',
+      crust: 'flaky crust',
+      servings: 1
+    });
 
+    const res = await request(app)
+      .put(`/api/v1/pies/${pie.id}`)
+      .send({ filling: 'various fruits' });
+
+    expect(res.body).toEqual({
+      ...pie,
+      filling: 'various fruits'
+    });
   });
 
 
