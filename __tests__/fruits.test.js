@@ -13,7 +13,7 @@ describe('fruits routes', () => {
     const fruit = { 
       name: 'apple',
       type: 'pome',
-      month: 'fall',
+      month: 'October',
       goodOnPizza: true
     };
 
