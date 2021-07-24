@@ -10,7 +10,19 @@ describe('fruits routes', () => {
   });
 
   it('POSTS a new fruit', async () => {
+    const fruit = { 
+      name: 'apple',
+      type: 'pome',
+      season: 'fall',
+      goodOnPizza: true
+    };
 
+    const res = await request(app).post('/api/v1/fruits').send(fruit);
+
+    expect(res.body).toEqual({
+      id: '1',
+      ...fruit,
+    });
   });
 
 
