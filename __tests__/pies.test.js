@@ -53,7 +53,17 @@ describe('pie routes', () => {
 
 
   it('GETS one pie by id', async () => {
+    const pie = await Pie.create({
+      name: 'pumpkin pie',
+      type: 'custard',
+      filling: 'pumpkin',
+      crust: 'graham cracker',
+      servings: 8
+    });
 
+    const res = await request(app).get(`/api/v1/pies/${pie.id}`);
+
+    expect(res.body).toEqual(pie);
   });
 
 
