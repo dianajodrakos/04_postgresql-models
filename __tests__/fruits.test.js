@@ -27,7 +27,25 @@ describe('fruits routes', () => {
 
 
   it('GETS all fruits', async () => {
+    const fruit1 = await Fruit.create({
+      name: 'apple',
+      type: 'pome',
+      month: 'October',
+      goodOnPizza: true
+    });
 
+    const fruit2 = await Fruit.create({
+      name: 'blackberry',
+      type: 'berry',
+      month: 'August',
+      goodOnPizza: false
+    });
+
+    return request(app)
+      .get('/api/v1/fruits')
+      .then((res) => {
+        expect(res.body).toEqual([fruit1, fruit2]);
+      });
   });
 
 
