@@ -83,6 +83,18 @@ describe('fruits routes', () => {
 
 
   it('DELETES a fruit by id', async () => {
+    const fruit = await Fruit.create({
+      name: 'cherry',
+      type: 'drupe',
+      month: 'June-August',
+      goodOnPizza: false
+    });
 
+    const res = await request(app).delete(`/api/v1/fruits/${fruit.id}`);
+
+    expect(res.body).toEqual({
+      message: `${fruit.name} was deleted.`
+    });
+  });
   });
 });
